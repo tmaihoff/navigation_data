@@ -27,7 +27,10 @@ jobs:
 
       - name: Clone aviation_units submodule
         run: git -C ../ clone https://github.com/tmaihoff/aviation_units.git
-        
+
+      - name: Clone aviation_entities submodule
+        run: git -C ../ clone https://github.com/tmaihoff/aviation_entities.git
+
       - name: Pub get
         run: flutter pub get
 
