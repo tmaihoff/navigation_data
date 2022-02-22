@@ -1,0 +1,8 @@
+include: ../../analysis_options.yaml
+
+analyzer:
+  exclude:
+    - '**/airports_json'
+    - '**/runways_json'
+    - '**/navaids_json'
+
