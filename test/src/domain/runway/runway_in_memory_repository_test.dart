@@ -1,7 +1,7 @@
 import 'package:aviation_entities/runway.dart';
 import 'package:aviation_units/aviation_units.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/runway_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/runway_in_memory_repository.dart';
 
 void main() {
   final RunwayInMemoryRepository repo = RunwayInMemoryRepository(mockedAll);

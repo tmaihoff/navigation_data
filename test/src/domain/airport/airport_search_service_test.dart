@@ -2,7 +2,7 @@ import 'package:aviation_entities/airport.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:navigation_data/navigation_data.dart';
 import 'package:navigation_data/src/domain/airport/airport_search_service.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/airport_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/airport_in_memory_repository.dart';
 
 import '../../test_utils.dart';
 

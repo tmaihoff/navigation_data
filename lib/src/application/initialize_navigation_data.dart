@@ -5,7 +5,7 @@ import 'package:aviation_entities/nav_aid.dart';
 import 'package:aviation_entities/runway.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:navigation_data/src/infrastructure/in_memory/in_memory_setup.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/in_memory_setup.dart';
 
 class NavigationData {
   static const kDataPath = 'packages/navigation_data/data/';

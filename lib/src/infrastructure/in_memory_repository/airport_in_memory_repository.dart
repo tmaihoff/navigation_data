@@ -11,10 +11,10 @@ class AirportInMemoryRepository extends AirportRepository {
   AirportInMemoryRepository(this._all);
 
   @override
-  Future<List<Airport>> findAll() async => _all;
+  List<Airport> findAll() => _all;
 
   @override
-  Future<Airport?> findByIcaoCode(String icaoCode) async {
+  Airport? findByIcaoCode(String icaoCode) {
     final searchBy = icaoCode.trim().toLowerCase();
     if (icaoCode.length > 4) return null;
 
@@ -24,7 +24,7 @@ class AirportInMemoryRepository extends AirportRepository {
   }
 
   @override
-  Future<Airport?> findByIataCode(String iataCode) async {
+  Airport? findByIataCode(String iataCode) {
     if (iataCode.length > 3) return null;
 
     final searchBy = iataCode.trim().toLowerCase();
@@ -33,7 +33,7 @@ class AirportInMemoryRepository extends AirportRepository {
   }
 
   @override
-  Future<List<Airport>> findAllByIataCodeLike(String iataCodeLike) async {
+  List<Airport> findAllByIataCodeLike(String iataCodeLike) {
     final searchBy = iataCodeLike.trim().toLowerCase();
 
     if (iataCodeLike.isEmpty) return [];
@@ -49,7 +49,7 @@ class AirportInMemoryRepository extends AirportRepository {
   }
 
   @override
-  Future<List<Airport>> findAllByIcaoCodeLike(String icaoCodeLike) async {
+  List<Airport> findAllByIcaoCodeLike(String icaoCodeLike) {
     final searchBy = icaoCodeLike.trim().toLowerCase();
 
     if (icaoCodeLike.isEmpty) return [];
@@ -65,7 +65,7 @@ class AirportInMemoryRepository extends AirportRepository {
   }
 
   @override
-  Future<List<Airport>> findAllByNameLike(String nameLike) async {
+  List<Airport> findAllByNameLike(String nameLike) {
     final searchBy = nameLike.trim().toLowerCase();
 
     if (nameLike.isEmpty) return [];
@@ -81,7 +81,7 @@ class AirportInMemoryRepository extends AirportRepository {
   }
 
   @override
-  Future<List<Airport>> findAllByIataCodeStartsWith(String startsWith) async {
+  List<Airport> findAllByIataCodeStartsWith(String startsWith) {
     final searchBy = startsWith.trim().toLowerCase();
 
     if (startsWith.isEmpty) return [];
@@ -97,7 +97,7 @@ class AirportInMemoryRepository extends AirportRepository {
   }
 
   @override
-  Future<List<Airport>> findAllByIcaoCodeStartsWith(String startsWith) async {
+  List<Airport> findAllByIcaoCodeStartsWith(String startsWith) {
     final searchBy = startsWith.trim().toLowerCase();
 
     if (startsWith.isEmpty) return [];
@@ -114,7 +114,7 @@ class AirportInMemoryRepository extends AirportRepository {
 
   // TODO: test starts with methods
   @override
-  Future<List<Airport>> findAllByNameStartsWith(String startsWith) async {
+  List<Airport> findAllByNameStartsWith(String startsWith) {
     final searchBy = startsWith.trim().toLowerCase();
 
     if (startsWith.isEmpty) return [];

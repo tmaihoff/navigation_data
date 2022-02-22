@@ -16,25 +16,25 @@ class AirportSearchService {
       return [];
     }
 
-    final startsWithIcao =
-        await airportRepository.findAllByIcaoCodeStartsWith(searchInput)
-          ..sort((a, b) => a.icaoCode.compareTo(b.icaoCode));
-
-    final startsWithIata =
-        await airportRepository.findAllByIataCodeStartsWith(searchInput)
-          ..sort((a, b) => a.iataCode.compareTo(b.iataCode));
-
-    final startsWithName =
-        await airportRepository.findAllByNameStartsWith(searchInput)
-          ..sort((a, b) => a.name.compareTo(b.name));
-
-    final byIcao = await airportRepository.findAllByIcaoCodeLike(searchInput)
+    final startsWithIcao = airportRepository
+        .findAllByIcaoCodeStartsWith(searchInput)
       ..sort((a, b) => a.icaoCode.compareTo(b.icaoCode));
 
-    final byIata = await airportRepository.findAllByIataCodeLike(searchInput)
+    final startsWithIata = airportRepository
+        .findAllByIataCodeStartsWith(searchInput)
       ..sort((a, b) => a.iataCode.compareTo(b.iataCode));
 
-    final byName = await airportRepository.findAllByNameLike(searchInput)
+    final startsWithName = airportRepository
+        .findAllByNameStartsWith(searchInput)
+      ..sort((a, b) => a.name.compareTo(b.name));
+
+    final byIcao = airportRepository.findAllByIcaoCodeLike(searchInput)
+      ..sort((a, b) => a.icaoCode.compareTo(b.icaoCode));
+
+    final byIata = airportRepository.findAllByIataCodeLike(searchInput)
+      ..sort((a, b) => a.iataCode.compareTo(b.iataCode));
+
+    final byName = airportRepository.findAllByNameLike(searchInput)
       ..sort((a, b) => a.name.compareTo(b.name));
 
     if (searchInput.trim().length == 3) {

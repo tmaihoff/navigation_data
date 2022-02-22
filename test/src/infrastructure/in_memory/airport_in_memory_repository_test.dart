@@ -1,6 +1,6 @@
 import 'package:aviation_entities/airport.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/airport_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/airport_in_memory_repository.dart';
 
 void main() {
   late AirportInMemoryRepository repo;
@@ -32,40 +32,40 @@ void main() {
     });
 
     test('find all', () async {
-      expect(await repo.findAll(), airports);
+      expect(repo.findAll(), airports);
     });
 
     test('find by icao code', () async {
-      expect(await repo.findByIcaoCode('cao1'), airports[0]);
-      expect(await repo.findByIcaoCode('CAO1'), airports[0]);
-      expect(await repo.findByIcaoCode('notfound'), null);
+      expect(repo.findByIcaoCode('cao1'), airports[0]);
+      expect(repo.findByIcaoCode('CAO1'), airports[0]);
+      expect(repo.findByIcaoCode('notfound'), null);
     });
 
     test('find by iata code', () async {
-      expect(await repo.findByIataCode('ta2'), airports[1]);
-      expect(await repo.findByIataCode('TA2'), airports[1]);
-      expect(await repo.findByIataCode('notfound'), null);
+      expect(repo.findByIataCode('ta2'), airports[1]);
+      expect(repo.findByIataCode('TA2'), airports[1]);
+      expect(repo.findByIataCode('notfound'), null);
     });
 
     test('find all by iata code like', () async {
-      expect(await repo.findAllByIataCodeLike('a2'), [airports[1]]);
-      expect(await repo.findAllByIataCodeLike('TA2'), [airports[1]]);
-      expect(await repo.findAllByIataCodeLike(''), []);
-      expect(await repo.findAllByIataCodeLike('something else'), []);
+      expect(repo.findAllByIataCodeLike('a2'), [airports[1]]);
+      expect(repo.findAllByIataCodeLike('TA2'), [airports[1]]);
+      expect(repo.findAllByIataCodeLike(''), []);
+      expect(repo.findAllByIataCodeLike('something else'), []);
     });
 
     test('find all by icao code like', () async {
-      expect(await repo.findAllByIcaoCodeLike('ao2'), [airports[1]]);
-      expect(await repo.findAllByIcaoCodeLike('O2'), [airports[1]]);
-      expect(await repo.findAllByIcaoCodeLike(''), []);
-      expect(await repo.findAllByIcaoCodeLike('something else'), []);
+      expect(repo.findAllByIcaoCodeLike('ao2'), [airports[1]]);
+      expect(repo.findAllByIcaoCodeLike('O2'), [airports[1]]);
+      expect(repo.findAllByIcaoCodeLike(''), []);
+      expect(repo.findAllByIcaoCodeLike('something else'), []);
     });
 
     test('find all by name code like', () async {
-      expect(await repo.findAllByNameLike('ame2'), [airports[1]]);
-      expect(await repo.findAllByNameLike('AME2'), [airports[1]]);
-      expect(await repo.findAllByNameLike(''), []);
-      expect(await repo.findAllByNameLike('something else'), []);
+      expect(repo.findAllByNameLike('ame2'), [airports[1]]);
+      expect(repo.findAllByNameLike('AME2'), [airports[1]]);
+      expect(repo.findAllByNameLike(''), []);
+      expect(repo.findAllByNameLike('something else'), []);
     });
   });
 }

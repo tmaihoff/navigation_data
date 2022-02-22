@@ -9,9 +9,9 @@ import 'package:navigation_data/src/domain/airport/airport_repository.dart';
 import 'package:navigation_data/src/domain/airport/airport_search_service.dart';
 import 'package:navigation_data/src/domain/navaid/nav_aid_repository.dart';
 import 'package:navigation_data/src/domain/runway/runway_repository.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/airport_in_memory_repository.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/nav_aid_in_memory_repository.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/runway_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/airport_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/nav_aid_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/runway_in_memory_repository.dart';
 
 class InMemorySetup {
   static Future<void> initialize({

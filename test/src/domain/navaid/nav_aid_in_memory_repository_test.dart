@@ -1,7 +1,7 @@
 import 'package:aviation_entities/nav_aid.dart';
 import 'package:aviation_units/aviation_units.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:navigation_data/src/infrastructure/in_memory/nav_aid_in_memory_repository.dart';
+import 'package:navigation_data/src/infrastructure/in_memory_repository/nav_aid_in_memory_repository.dart';
 
 void main() {
   late NavAidInMemoryRepository repo;
