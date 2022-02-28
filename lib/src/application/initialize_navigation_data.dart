@@ -16,37 +16,29 @@ class NavigationData {
   static Future<void> initialize({
     required bool isWeb,
     required String dbDirectory,
+    bool loadAirportsOnly = false,
   }) async {
     final airports = await _loadAirportsFromFile();
-    final runways = await _loadRunwaysFromFile();
-    final navAids = await _loadNavAidsFromFile();
+    List<RunwaySet>? runways;
+    List<NavAid>? navAids;
 
-    if (isWeb) {
-      await InMemorySetup.initialize(
-        airports: airports,
-        runways: runways,
-        navAids: navAids,
-      );
-    } else {
-      await InMemorySetup.initialize(
-        airports: airports,
-        runways: runways,
-        navAids: navAids,
-      );
-      // await SembastSetup.initialize(
-      //   dbDirectory,
-      //   airports: airports,
-      //   runways: runways,
-      //   navAids: navAids,
-      // );
+    if (!loadAirportsOnly) {
+      runways = await _loadRunwaysFromFile();
+      navAids = await _loadNavAidsFromFile();
     }
-  }
 
-  static Future<void> invalidateData(bool isWeb) async {
     if (isWeb) {
-      // no action
+      await InMemorySetup.initialize(
+        airports: airports,
+        runways: runways,
+        navAids: navAids,
+      );
     } else {
-      // SembastSetup.invalidateData();
+      await InMemorySetup.initialize(
+        airports: airports,
+        runways: runways,
+        navAids: navAids,
+      );
     }
   }
 
