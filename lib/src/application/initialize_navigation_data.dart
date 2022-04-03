@@ -33,20 +33,6 @@ class NavigationData {
         runways: runways,
         navAids: navAids,
       );
-      // await SembastSetup.initialize(
-      //   dbDirectory,
-      //   airports: airports,
-      //   runways: runways,
-      //   navAids: navAids,
-      // );
-    }
-  }
-
-  static Future<void> invalidateData(bool isWeb) async {
-    if (isWeb) {
-      // no action
-    } else {
-      // SembastSetup.invalidateData();
     }
   }
 
