@@ -16,10 +16,16 @@ class NavigationData {
   static Future<void> initialize({
     required bool isWeb,
     required String dbDirectory,
+    bool loadAirportsOnly = false,
   }) async {
     final airports = await _loadAirportsFromFile();
-    final runways = await _loadRunwaysFromFile();
-    final navAids = await _loadNavAidsFromFile();
+    List<RunwaySet>? runways;
+    List<NavAid>? navAids;
+
+    if (!loadAirportsOnly) {
+      runways = await _loadRunwaysFromFile();
+      navAids = await _loadNavAidsFromFile();
+    }
 
     if (isWeb) {
       await InMemorySetup.initialize(

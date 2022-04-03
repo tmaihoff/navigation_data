@@ -16,17 +16,21 @@ import 'package:navigation_data/src/infrastructure/in_memory_repository/runway_i
 class InMemorySetup {
   static Future<void> initialize({
     required List<Airport> airports,
-    required List<RunwaySet> runways,
-    required List<NavAid> navAids,
+    required List<RunwaySet>? runways,
+    required List<NavAid>? navAids,
   }) async {
     logger.i('initializing in memory data');
     logger.i('registering repositories and services');
 
     _registerInMemoryAirportRepository(airports);
 
-    _registerInMemoryRunwaysRepository(runways);
+    if (runways != null) {
+      _registerInMemoryRunwaysRepository(runways);
+    }
 
-    _registerInMemoryNavAidRepository(navAids);
+    if (navAids != null) {
+      _registerInMemoryNavAidRepository(navAids);
+    }
 
     _registerAirportSearchService();
 
